@@ -110,6 +110,37 @@ module.exports = {
             },
         },
         {
+            resolver: "gatsby-react-redux",
+            options: {
+                features:{
+                    //[required] Path to Create Store Module
+                    pathToCreateStoreModule: './src/state/createStore.js',
+                    serialize:{
+                        space: 0,
+                        isJSON: true,
+                        unsafe: false,
+                    },
+                    cleanUpOnClient: true,
+
+                    windowKey: '__PRELOADED_STATE__'
+                },
+            },
+        },
+        {
+            resolver: "gatsby-firebase-plugin",
+            options: {
+                features: {
+                    auth: false,
+                    database: false,
+                    firestore: true,
+                    storage: true,
+                    messaging: true,
+                    functions: true,
+                    performance: true
+                },
+            },
+        },
+        {
             resolve: `gatsby-plugin-advanced-sitemap`,
             options: {
                 query: `
